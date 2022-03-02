@@ -36495,7 +36495,7 @@ return A.ed(A.a([A.RR(),new A.cX(B.cj,A.c0("Knowledge",s,s,A.as(b).W.y,s,s),s),n
 A.mr.prototype={
 J(a,b){var s=null,r=$.ajY()
 $.Pj().toString
-return new A.cX(B.AC,A.eR(A.a([new A.qE(new A.j5(r,"icons/Check.svg",s,s),s,s),A.de(s,s,10),A.c0(this.c,s,s,s,s,s)],t.p),B.L,B.I,B.Z),s)}}
+return new A.cX(B.AC,A.eR(A.a([new A.qE(new A.j5(r,"/assets/icons/Check.svg",s,s),s,s),A.de(s,s,10),A.c0(this.c,s,s,s,s,s)],t.p),B.L,B.I,B.Z),s)}}
 A.ET.prototype={
 J(a,b){var s=null
 return new A.o6(1.23,A.dS(s,A.ed(A.a([new A.ib(2,s),new A.BD(new A.o7("assets/images/profile_pic.jpeg",s,s),50,s),new A.ib(1,s),A.c0("Bryan A. V\xe1zquez Hern\xe1ndez",s,s,A.as(b).W.y,s,s),A.c0("Scrum Master, PM. Jr & Entreprenur",s,s,A.dL(s,s,s,s,s,s,s,s,s,s,s,s,s,B.bK,s,1.5,!0,s,s,s,s,s,s,s,s),B.k3,s),new A.ib(2,s)],t.p),B.L,B.F_),B.n,new A.l(4280558640),s,s,s,s,s,s,s,s,s),s)}}
