@@ -36453,7 +36453,7 @@ return A.ec(A.a([A.eQ(A.a([A.c_(this.a.d,s,s,A.dL(s,s,B.j,s,s,s,s,s,s,s,s,s,s,s,
 $S:418}
 A.ER.prototype={
 J(a,b){var s=null,r=A.agy(B.P),q=A.as(b).W,p=A.ff(q.a),o=A.ff(q.b),n=A.ff(q.c),m=A.ff(q.e),l=A.ff(q.f),k=A.ff(q.r),j=A.ff(q.x),i=A.ff(q.y),h=A.ff(q.z),g=A.ff(q.Q),f=A.ff(q.ch)
-return new A.vp(new A.DY(s),"Flutter Demo",r.a_t(B.cc,B.cd,B.cc,A.a28(s,s,s,h,g,A.ff(q.cx),f,s,s,s,p,o,n,m,l,k,s,s,s,s,s,s,A.ff(q.db),j,i,s,s,s).Z7(B.j).a_l(A.dL(s,s,B.l5,s,s,s,s,s,s,s,s,s,s,s,s,s,!0,s,s,s,s,s,s,s,s),A.dL(s,s,B.l5,s,s,s,s,s,s,s,s,s,s,s,s,s,!0,s,s,s,s,s,s,s,s))),!1,s)}}
+return new A.vp(new A.DY(s),"Bryan Vazquez",r.a_t(B.cc,B.cd,B.cc,A.a28(s,s,s,h,g,A.ff(q.cx),f,s,s,s,p,o,n,m,l,k,s,s,s,s,s,s,A.ff(q.db),j,i,s,s,s).Z7(B.j).a_l(A.dL(s,s,B.l5,s,s,s,s,s,s,s,s,s,s,s,s,s,!0,s,s,s,s,s,s,s,s),A.dL(s,s,B.l5,s,s,s,s,s,s,s,s,s,s,s,s,s,!0,s,s,s,s,s,s,s,s))),!1,s)}}
 A.EB.prototype={
 J(a,b){var s,r,q=null,p=t.w
 if(b.R(p).f.a.a>=1024)s=q
