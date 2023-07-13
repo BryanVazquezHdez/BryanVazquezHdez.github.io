@@ -4,28 +4,30 @@ const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
   "version.json": "10cedc975dcfc8dea13d63d1520acb22",
-"index.html": "25f555c609414864fff5934e7f7f56d1",
-"/": "25f555c609414864fff5934e7f7f56d1",
-"main.dart.js": "77e05e1d98f78b5b2f5ad7aa4875d884",
+"index.html": "c8b590be87dbaffaf262cd16a1cbb757",
+"/": "c8b590be87dbaffaf262cd16a1cbb757",
+"main.dart.js": "ab470db803d510f3482aa58972f03f83",
+"flutter.js": "a85fcf6324d3c4d3ae3be1ae4931e9c5",
 "favicon.png": "7aefa01752d1d8764c8cc0a1297741da",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "manifest.json": "e1047e9a8130f8453a83877cdde6f449",
-"assets/AssetManifest.json": "619d47089ef8a38f0662c02c9a6bb2db",
+"assets/AssetManifest.json": "855027a3126653f4919656488790908c",
 "assets/loading.gif": "953d682f4719df5bdb81210ded9012bb",
-"assets/NOTICES": "62d291abb61d6f831e6d616a18ce7b3e",
+"assets/NOTICES": "7f1825344f96954f6cfa7d13bd7c7569",
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "assets/packages/flutter_inappwebview/assets/t_rex_runner/t-rex.css": "5a8d0222407e388155d7d1395a75d5b9",
 "assets/packages/flutter_inappwebview/assets/t_rex_runner/t-rex.html": "16911fcc170c8af1c5457940bd0bf055",
-"assets/fonts/MaterialIcons-Regular.otf": "7e7a6cccddf6d7b20012a548461d5d81",
+"assets/fonts/MaterialIcons-Regular.otf": "e7069dfd19b331be16bed984668fe080",
 "assets/assets/images/alternate.jpg": "be8fd53ed05de64a7fc6a264d56d0f8e",
 "assets/assets/images/bg2.jpeg": "c6449162dc3940daa640a43101cfd66c",
 "assets/assets/images/bf3.jpeg": "e65e75b1ea507f95b9378384707d2c24",
 "assets/assets/images/bg4.png": "c0e535ef942f78ab808088c177843b02",
 "assets/assets/images/profile.jpg": "59114621ee3bda4c8acd1b652963ceaf",
+"assets/assets/images/square.jpg": "2aef7c2d1d546cb2932592cbf9c377dd",
 "assets/assets/images/bg.jpeg": "e08e85d27d81da280a7ef8f65f467f56",
 "assets/assets/images/profile_pic.jpeg": "59114621ee3bda4c8acd1b652963ceaf",
 "assets/assets/icons/github.svg": "dd01bcb52ab997575232151c45b78f8a",
@@ -37,19 +39,17 @@ const RESOURCES = {
 "assets/assets/icons/youtube.svg": "8af4650a2939f6a2f692ce17b283a318",
 "assets/assets/icons/linkedin.svg": "d36958312b1247669875963a03ce4b7f",
 "assets/assets/icons/twitter.svg": "49825a69c9e7ffa9ed73d310bbf7b083",
-"canvaskit/canvaskit.js": "c2b4e5f3d7a3d82aed024e7249a78487",
-"canvaskit/profiling/canvaskit.js": "ae2949af4efc61d28a4a80fffa1db900",
-"canvaskit/profiling/canvaskit.wasm": "95e736ab31147d1b2c7b25f11d4c32cd",
-"canvaskit/canvaskit.wasm": "4b83d89d9fecbea8ca46f2f760c5a9ba"
+"canvaskit/canvaskit.js": "97937cb4c2c2073c968525a3e08c86a3",
+"canvaskit/profiling/canvaskit.js": "c21852696bc1cc82e8894d851c01921a",
+"canvaskit/profiling/canvaskit.wasm": "371bc4e204443b0d5e774d64a046eb99",
+"canvaskit/canvaskit.wasm": "3de12d898ec208a5f31362cc00f09b9e"
 };
 
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = [
-  "/",
-"main.dart.js",
+  "main.dart.js",
 "index.html",
-"assets/NOTICES",
 "assets/AssetManifest.json",
 "assets/FontManifest.json"];
 // During install, the TEMP cache is populated with the application shell files.
@@ -148,9 +148,11 @@ self.addEventListener("fetch", (event) => {
     .then((cache) =>  {
       return cache.match(event.request).then((response) => {
         // Either respond with the cached resource, or perform a fetch and
-        // lazily populate the cache.
+        // lazily populate the cache only if the resource was successfully fetched.
         return response || fetch(event.request).then((response) => {
-          cache.put(event.request, response.clone());
+          if (response && Boolean(response.ok)) {
+            cache.put(event.request, response.clone());
+          }
           return response;
         });
       })
